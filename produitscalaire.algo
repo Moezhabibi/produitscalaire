@@ -1,0 +1,56 @@
+
+PROCEDURE DOT_produit(v1:ARRAY_OF FLOAT,v2:ARRAY_OF FLOAT,VAR ps : FLOAT)
+VAR
+    i:INTEGER;
+BEGIN
+    ps:=0;
+    FOR i FROM 0 TO 2 STEP 1 DO
+        ps:= ps + v1[i] * v2[i];
+    END_FOR
+    
+END
+
+/*FUNCTION dot_produit(v1:ARRAY_OF FLOAT,v2: ARRAY_OF FLOAT) : FLOAT
+VAR
+    ps:INTEGER:=0;
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO 2 STEP 1 DO
+        ps:= ps + v1[i] * v2[i];
+    END_FOR
+    RETURN ps ;
+END*/
+
+PROCEDURE remplissage(var v:ARRAY_OF FLOAT)
+VAR
+    i:integer
+BEGIN
+    FOR i FROM 0 TO 2 STEP 1  DO
+        Read (v[i]);
+    END_FOR
+END
+
+ALGORITHM Produit_Scalaire
+VAR:
+v1 : ARRAY_OF float[3];
+v2: ARRAY_OF float[3];
+ps: float ;
+n:integer
+
+BEGIN
+FOR i FROM 1 TO n STEP 1 DO
+   remplissage (v1)
+   remplissage (v2)
+   dot_produit (v1,v2,ps)
+   IF (ps=0) THEN
+    Write ("les deux vecteurs sont orthogonaux")
+   ELSE
+    Write ("les deux vecteur ne sont pas orthogonaux")
+   END_IF
+
+ps:= dot_produit (v1,v2)
+
+END_FOR
+
+
+END
